@@ -19,7 +19,7 @@ const Timer = () => {
 					</Label>
 				</Form>
 				<br></br>
-				<h1>1 : 29 : 43</h1>
+				<h1>01 : 29 : 43</h1>
 				<br></br>
 				<Divider />
 				<br></br>
