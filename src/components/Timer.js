@@ -24,7 +24,7 @@ const Timer = () => {
 				<Divider />
 				<br></br>
 				<br></br>
-				<div>
+				<div style={{ display: 'flex', justifyContent: 'space-around' }}>
 					<Icon link name='stop circle outline' size='huge'></Icon>
 					<Icon link name='play circle outline' size='huge'></Icon>
 				</div>
