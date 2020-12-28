@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+// widget - world time, alarm, stopwatch, timer
+import React from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import WorldTime from './components/WorldTime';
+import Timer from './components/Timer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+	render() {
+		return (
+			<div style={{ padding: '0.2rem' }}>
+				<Timer />
+			</div>
+		);
+	}
 }
 
 export default App;

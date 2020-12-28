@@ -1,0 +1,5 @@
+.nameBox {
+	display: flex;
+	justify-content: center;
+	background: #f3f3f3;
+}
