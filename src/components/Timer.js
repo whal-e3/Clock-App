@@ -30,6 +30,7 @@ const Timer = () => {
 				setSecond(new Date(distance).getSeconds());
 				if (distance === 0) {
 					clearInterval(interval);
+					alert('time over!');
 				}
 			}, 1000);
 		} else {
