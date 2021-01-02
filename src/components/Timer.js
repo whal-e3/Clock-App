@@ -19,6 +19,31 @@ const Timer = () => {
 	if (secondDisplay < 10) {
 		secondDisplay = '0' + secondDisplay;
 	}
+	let interval;
+	const play = () => {
+		if (hour > 0 || minute > 0 || second > 0) {
+			let distance = hour * 60 * 60 * 1000 + minute * 60 * 1000 + second * 1000;
+			interval = setInterval(() => {
+				distance -= 1000;
+				setHour(Math.floor(distance / (60 * 60 * 1000)));
+				setMinute(new Date(distance).getMinutes());
+				setSecond(new Date(distance).getSeconds());
+				if (distance === 0) {
+					clearInterval(interval);
+				}
+			}, 1000);
+		} else {
+			alert('set time first');
+		}
+	};
+	// const pause = () => {
+	// 	clearInterval();
+	// };
+	const stop = () => {
+		setHour(0);
+		setMinute(0);
+		setSecond(0);
+	};
 
 	return (
 		<div className='timer'>
@@ -81,32 +106,12 @@ const Timer = () => {
 						link
 						name='stop circle outline'
 						size='huge'
-						onClick={() => {
-							setHour(0);
-							setMinute(0);
-							setSecond(0);
-						}}></Icon>
+						onClick={stop}></Icon>
 					<Icon
 						link
 						name='play circle outline'
 						size='huge'
-						onClick={() => {
-							if (hour > 0 || minute > 0 || second > 0) {
-								let distance =
-									hour * 60 * 60 * 1000 + minute * 60 * 1000 + second * 1000;
-								let interval = setInterval(() => {
-									distance -= 1000;
-									setHour(Math.floor(distance / (60 * 60 * 1000)));
-									setMinute(new Date(distance).getMinutes());
-									setSecond(new Date(distance).getSeconds());
-									if (distance === 0) {
-										clearInterval(interval);
-									}
-								}, 1000);
-							} else {
-								alert('set time first');
-							}
-						}}></Icon>
+						onClick={play}></Icon>
 				</div>
 			</Container>
 		</div>
@@ -115,10 +120,4 @@ const Timer = () => {
 
 export default Timer;
 
-// <Icon
-// 	link
-// 	name='pause circle outline'
-// 	size='huge'
-// 	onClick={() => {
-// 		stopInterval();
-// 	}}></Icon>
+// <Icon link name='pause circle outline' size='huge' onClick={pause}></Icon>
